@@ -29,3 +29,6 @@ set_up_stack_tweet_bot(extracted_tags = "h2o",
                        dir = "R",
                        verbose = TRUE,
                        frequency = "hourly")
+
+## Check the job has been set correctly
+cronR::cron_ls()
