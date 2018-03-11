@@ -3,7 +3,7 @@
 H2O Tweets
 ==========
 
-A [twitter bot](https://twitter.com/?logged_out=1&lang=en) posting Stack Overflow questions linked to [H2O](https://www.h2o.ai/h2o/) the open source machine learning tool kit. This bot has been built using the [StackTweetBot](https://www.samabbott.co.uk/StackTweetBot/) R package, which provides instructions and tools for setting up a Twitter Stack Overflow bot.
+A [twitter bot](https://twitter.com/h2o_tweets) posting Stack Overflow questions linked to [H2O](https://www.h2o.ai/h2o/) the open source machine learning tool kit. This bot has been built using the [StackTweetBot](https://www.samabbott.co.uk/StackTweetBot/) R package, which provides instructions and tools for setting up a Twitter Stack Overflow bot.
 
 Set-up
 ------
