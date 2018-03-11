@@ -3,12 +3,17 @@ install.packages("devtools")
 install.packages("cronR")
 devtools::install_github("seabbs/StackTweetBot")
 
+# Load StackTweetBot
 library(StackTweetBot)
 
 ## Add twitter API access
 add_twitter_api()
 
 ## Add stack overflow api access
+add_stack_api()
+
+## Restart R and check API
+add_twitter_api()
 add_stack_api()
 
 ## Set up, save and schedule h2o bot
