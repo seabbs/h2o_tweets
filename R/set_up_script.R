@@ -17,18 +17,20 @@ add_twitter_api()
 add_stack_api()
 
 ## Set up, save and schedule h2o bot
-set_up_stack_tweet_bot(extracted_tags = "h2o",
+set_up_stack_tweet_bot(extracted_tags = c("h2o"),
                        excluded_tags = NULL,
-                       time_window = 60,
+                       time_window = 15,
                        add_process_fn = NULL, 
-                       hashtags = c("datascience", "stackoverflow"),
+                       hashtags = c("datascience", 
+                                    "machinelearning", 
+                                    "stackoverflow"),
                        run = TRUE, 
                        schedule = TRUE,
                        save = TRUE, 
                        post = TRUE,
                        dir = "R",
                        verbose = TRUE,
-                       frequency = "hourly")
+                       frequency = "*/15 * * * *")
 
 ## Check the job has been set correctly
 cronR::cron_ls()
