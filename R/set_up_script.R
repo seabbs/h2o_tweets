@@ -32,5 +32,12 @@ set_up_stack_tweet_bot(extracted_tags = c("h2o"),
                        verbose = TRUE,
                        frequency = "*/15 * * * *")
 
-## Check the job has been set correctly
+
+## Schedule monthly updates on the number of questions 
+monthly_update_path <- file.path(getwd(), "h2o_tweets_over_time.R")
+monthly_update_cmd <- cronR::cron_rscript(monthly_update_path, log_append = TRUE)
+cronR::cron_add(monthly_update_cmd, "monthly", at = "12PM")
+
+
+## Check the jobs have been set correctly
 cronR::cron_ls()

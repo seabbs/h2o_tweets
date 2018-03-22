@@ -11,5 +11,8 @@ message('Extracted ', length(questions$title), ' questions');
 
 message('Posting questions as tweets');
 
-posts <- post_stack_tweets(questions, hashtags = c('datascience', 'machinelearning', 'stackoverflow'),
+posts <- post_stack_tweets(questions, 
+                           hashtags = c('datascience', 
+                                        'machinelearning', 
+                                        'stackoverflow'),
                            post = TRUE);

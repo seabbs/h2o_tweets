@@ -8,4 +8,4 @@ A [twitter bot](https://twitter.com/h2o_tweets) posting Stack Overflow questions
 Set-up
 ------
 
-Set-up the bot using `R/set-up-script.R`.
+Set-up the bot using `R/set-up-script.R`. The bot uses `stack_tweet_bot.R` to post tweets as questions are asked and `h2o_tweets_over_time.R` to post a monthly summary of questions. See `stack_tweet_bot.log` and `h2o_tweets_over_time.log` for logs of bot activity.
