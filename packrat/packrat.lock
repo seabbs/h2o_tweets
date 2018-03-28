@@ -187,6 +187,12 @@ Source: CRAN
 Version: 0.2.0
 Hash: cd78381a9d3fea966ac39bd0daaf5554
 
+Package: here
+Source: CRAN
+Version: 0.1
+Hash: 90e1a97508a0d7383b0eeb11e397e763
+Requires: rprojroot
+
 Package: highr
 Source: CRAN
 Version: 0.6

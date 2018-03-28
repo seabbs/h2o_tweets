@@ -8,7 +8,10 @@ library(ggplot2)
 library(forcats)
 library(viridis)
 library(rtweet)
+library(scales)
 
+## Set work directory (not ideal but seems neccessary for CRON)
+setwd("h2o_tweets")
 
 ## Get questions using stackr
 questions <- get_stack_questions(extracted_tags = 'h2o',
@@ -17,6 +20,8 @@ questions <- get_stack_questions(extracted_tags = 'h2o',
                                  add_process_fn = NULL,
                                  num_pages = 200);
 
+
+message("Getting questions")
 
 ## Tidy questions by tag
 questions_tidy <- questions %>% 
@@ -69,12 +74,46 @@ h2o_tag_plot <- questions_coll %>%
        title = "H2O Stack Overflow Questions Over Time",
        subtitle = paste0("For the previous 5 years relative to the ", Sys.Date()))
 
+message("Saving plot")
+
 ## Save plot
-ggsave("h2o_tag_plot.png", h2o_tag_plot, path = "../img", dpi = 330, width = 12, height = 8)
+ggsave("h2o_tag_plot.png", h2o_tag_plot, path = "img", dpi = 330, width = 12, height = 8)
+
+## Filter questions from the last month
+monthly_questions <- questions_tidy %>% 
+  filter(creation_date > Sys.Date() - months(1)) %>% 
+  count(tags, wt = questions)
+
+h2o_questions_plot <- monthly_questions %>% 
+  mutate(n = n / filter(monthly_questions, tags %in% "h2o") %>% 
+           pull(n)) %>% 
+  mutate(tags = tags %>% 
+           factor(levels = monthly_questions %>% 
+                    arrange(desc(n)) %>% 
+                    pull(tags) %>% 
+                    rev)) %>% 
+  filter(n > 0.05) %>% 
+  filter(!tags %in% "h2o") %>% 
+  ggplot(aes(x = tags, y = n, fill = "hold")) +
+  geom_bar(stat = "identity", alpha = 0.8) +
+  geom_label(aes(label = paste0(round(n*100, digits = 0), "%")), nudge_y = -0.02, fill = "white") +
+  coord_flip() +
+  theme_minimal() +
+  scale_fill_manual(values = "#4191E4") +
+  scale_y_continuous(labels = percent) +
+  theme(legend.position = "none") +
+  labs(y = "Percentage of Questions",
+       x = "Tag",
+       caption = "Only tags that are used in at least 5% of questions are included. @seabbs Source: Stack Overflow",
+       title = "H2O Stack Overflow Questions By Tag",
+       subtitle = paste0("For the previous month relative to the ", Sys.Date()))
+  
+## Save plot
+ggsave("h2o_questions_plot.png", h2o_questions_plot, path = "img", dpi = 330, width = 12, height = 8)
 
 
 ## Make message
 tweet_content <- "Stack Overflow questions over time for @h2oai - follow for tweet updates as questions are asked. #datascience #machinelearning #stackoverflow"
 
 ## Post the tweet
-post_tweet(tweet_content, media = "../img/h2o_tag_plot.png")
+post_tweet(tweet_content, media =  c("img/h2o_tag_plot.png", "img/h2o_questions_plot.png"))
