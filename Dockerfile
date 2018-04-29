@@ -13,6 +13,7 @@ RUN apt-get update \
 	libssl-dev \
     libcurl4-openssl-dev \
     git \
+    libgit2 \
     && apt-get clean
 
 ADD . home/h2o_tweets
