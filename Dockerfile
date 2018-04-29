@@ -1,4 +1,3 @@
-
 ## Start rocker r image
 FROM rocker/r-ver:3.4.4
 
@@ -13,8 +12,11 @@ RUN apt-get update \
 	libssl-dev \
     libcurl4-openssl-dev \
     git \
-    libcurl4-gnutls-dev \
-    libgit2-dev \
+    && apt-get clean
+
+RUN apt-get update \
+  && apt-get install -y \
+	libgit2-dev \
     && apt-get clean
 
 ADD . home/h2o_tweets
