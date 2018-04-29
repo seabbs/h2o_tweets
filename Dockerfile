@@ -13,6 +13,7 @@ RUN apt-get update \
 	libssl-dev \
     libcurl4-openssl-dev \
     git \
+    libcurl4-gnutls-dev \
     libgit2-dev \
     && apt-get clean
 
