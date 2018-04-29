@@ -30,7 +30,7 @@ RUN Rscript -e 'install.packages(c("lubridate", "ggplot2", "forcats", "viridis")
 
 RUN Rscript -e 'install.packages(c("scales", "devtools", "cronR", "rtweet"))'
 
-RUN Rscript -e 'devtool::install_github("seabbs/StackTweetBot")'
+RUN Rscript -e 'devtools::install_github("seabbs/StackTweetBot")'
 
 ## Run the bot
 CMD Rscript R/stack_tweet_bot.R
