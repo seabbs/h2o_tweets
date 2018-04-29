@@ -24,7 +24,13 @@ ADD . home/h2o_tweets
 WORKDIR  home/h2o_tweets
 
 ## Install R packages
-RUN Rscript -e 'install.packages("packrat"); packrat::restore()'
+RUN Rscript -e 'install.packages(c("dplyr", "stringr", "purrr", "tidyr"))'
+
+RUN Rscript -e 'install.packages(c("lubridate", "ggplot2", "forcats", "viridis"))'
+
+RUN Rscript -e 'install.packages(c("scales", "devtools", "cronR", "rtweet"))
+
+RUN Rscript -e 'devtool::install_github("seabbs/StackTweetBot")'
 
 ## Run the bot
 CMD Rscript R/stack_tweet_bot.R
