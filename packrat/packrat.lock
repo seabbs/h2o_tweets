@@ -33,10 +33,6 @@ GithubRepo: StackTweetBot
 GithubUsername: seabbs
 GithubRef: master
 GithubSha1: a253ada55bcb1be066ffc5d32aa6b53c5fed9113
-RemoteHost: https://api.github.com
-RemoteRepo: StackTweetBot
-RemoteUsername: seabbs
-RemoteSha: a253ada55bcb1be066ffc5d32aa6b53c5fed9113
 
 Package: assertthat
 Source: CRAN
@@ -74,23 +70,6 @@ Source: CRAN
 Version: 0.9-7
 Hash: 4b195615d19ba49c114eb04e09e30a96
 Requires: bit
-
-Package: bitops
-Source: CRAN
-Version: 1.0-6
-Hash: 67d0775189fd0041d95abca618c5c07e
-
-Package: broom
-Source: CRAN
-Version: 0.4.3
-Hash: e796a434d80c7358cb3eb5acb142fb45
-Requires: dplyr, plyr, psych, reshape2, stringr, tidyr
-
-Package: caTools
-Source: CRAN
-Version: 1.17.1
-Hash: 97cb6f6293cd18d17df77a6383cc6763
-Requires: bitops
 
 Package: cli
 Source: CRAN
@@ -155,11 +134,6 @@ Version: 0.3.0
 Hash: 770f3834b97a2c429bdecb7a5f27eb25
 Requires: magrittr, rlang, tibble
 
-Package: formatR
-Source: CRAN
-Version: 1.5
-Hash: 258cf79a8dbeedf1c981cdb53837d2af
-
 Package: ggplot2
 Source: CRAN
 Version: 2.2.1
@@ -186,12 +160,6 @@ Package: gtable
 Source: CRAN
 Version: 0.2.0
 Hash: cd78381a9d3fea966ac39bd0daaf5554
-
-Package: here
-Source: CRAN
-Version: 0.1
-Hash: 90e1a97508a0d7383b0eeb11e397e763
-Requires: rprojroot
 
 Package: highr
 Source: CRAN
@@ -265,11 +233,6 @@ Source: CRAN
 Version: 0.5
 Hash: 463550cf44fb6f0a2359368f42eebe62
 
-Package: mnormt
-Source: CRAN
-Version: 1.5-5
-Hash: d0d5efbb1fb26d2dc5f9394c223084b5
-
 Package: munsell
 Source: CRAN
 Version: 0.4.3
@@ -307,12 +270,6 @@ Source: CRAN
 Version: 1.8.4
 Hash: 2d09eea8a6bcac8e61b6a8728917b877
 Requires: Rcpp
-
-Package: psych
-Source: CRAN
-Version: 1.7.8
-Hash: a9e7713423365e42e06413285a89e610
-Requires: mnormt
 
 Package: purrr
 Source: CRAN
@@ -377,10 +334,6 @@ GithubRepo: stackr
 GithubUsername: dgrtwo
 GithubRef: master
 GithubSha1: 3708582ef464eb394f88c6eab650247563cf9211
-RemoteHost: https://api.github.com
-RemoteRepo: stackr
-RemoteUsername: dgrtwo
-RemoteSha: 3708582ef464eb394f88c6eab650247563cf9211
 
 Package: stringi
 Source: CRAN
