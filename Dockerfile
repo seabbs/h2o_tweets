@@ -32,5 +32,8 @@ RUN Rscript -e 'install.packages(c("scales", "devtools", "cronR", "rtweet"))'
 
 RUN Rscript -e 'devtools::install_github("seabbs/StackTweetBot")'
 
+## Make a directory for auth
+RUN mkdir ../auth
+
 ## Run the bot
 CMD Rscript R/stack_tweet_bot.R
