@@ -11,7 +11,18 @@ library(rtweet)
 library(scales)
 
 ## Set work directory (not ideal but seems neccessary for CRON)
-setwd("h2o_tweets")
+message("Current work directory is ", getwd())
+
+if (!grepl("h2o_tweets", getwd())) {
+  if (dir.exists("h2o_tweets")) {
+    setwd("h2o_tweets")
+    }else{
+      message("Assumed in correct directory")
+    }
+  
+}
+
+message("Work directory set to ", getwd())
 
 ## Get questions using stackr
 questions <- get_stack_questions(extracted_tags = 'h2o',
